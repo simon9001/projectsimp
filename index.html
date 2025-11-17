@@ -2,26 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://script.google.com;">
-
+  <!-- REMOVE or REPLACE the CSP line below -->
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://script.google.com;"> -->
+  
+  <!-- Better CSP for development -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src * 'unsafe-inline' 'unsafe-eval';
+    script-src * 'unsafe-inline' 'unsafe-eval';
+    connect-src *;
+    style-src * 'unsafe-inline';
+    img-src * data:;
+  ">
+  
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Linus Ngigi Karanja - In Loving Memory</title>
   <link rel="icon" type="image/png" href="imges/img1.png" />
   
-
   <meta name="description" content="Digital memorial for Linus Ngigi Karanja — a celebration of a life filled with grace, kindness, and love." />
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- Google tag (gtag.js) -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z13XB49ZSX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Z13XB49ZSX');
-</script> -->
-
 </head>
 
 <body>
@@ -359,29 +357,37 @@
         <img src="" alt="Expanded view">
       </div>
 
-      <!-- Tribute Wall -->
-      <div id="tributes" class="card fade-in">
-        <h3 style="margin-top:0">Tribute Wall</h3>
-        
-        <p class="muted">Leave your loving words, prayers, and memories in honor of Linus.</p>
-        <form id="tributeForm" method="POST" data-netlify="true" onsubmit="return false;">
-          <div class="row" style="margin-bottom:8px">
-            <input id="name" placeholder="Your name">
-            <input id="relation" placeholder="Relationship (e.g., cousin, friend)">
-          </div>
-          <textarea id="message" placeholder="Write your tribute..."></textarea>
-          <div style="display:flex; gap:8px; margin-top:8px">
-            <button id="submitTribute" class="btn" type="button">Post Tribute</button>
-            <button id="clearAll" class="ghost" type="button">Clear Tributes</button>
-          </div>
-        </form>
-        <div id="tributeList"></div>
+ <!-- Tribute Wall -->
+<div id="tributes" class="card fade-in">
+  <h3 style="margin-top:0">Tribute Wall</h3>
+  
+  <p class="muted">Leave your loving words, prayers, and memories in honor of Linus.</p>
+  
+  <!-- Grid display for tributes -->
+  <div id="tributeGrid" class="tribute-grid"></div>
+  
+  <!-- See More Button -->
+  <div style="text-align: center; margin-top: 20px;">
+      <a href="tributes.html" class="btn">See More Tributes</a>
+  </div>
+  
+  <!-- Tribute Form -->
+  <form id="tributeForm" method="POST" data-netlify="true" onsubmit="return false;">
+      <div class="row" style="margin-bottom:8px">
+          <input id="name" placeholder="Your name">
+          <input id="relation" placeholder="Relationship (e.g., cousin, friend)">
       </div>
-
+      <textarea id="message" placeholder="Write your tribute..."></textarea>
+      <div style="display:flex; gap:8px; margin-top:8px">
+          <button id="submitTribute" class="btn" type="button">Post Tribute</button>
+          <button id="clearAll" class="ghost" type="button">Clear Tributes</button>
+      </div>
+  </form>
+</div>
       <!-- Program -->
       <div id="program" class="card fade-in">
         <h3 style="margin-top:0">Funeral Program</h3>
-        <a href="https://e-eurogy.netlify.app/imges/proggram.jpg" 
+        <a href="simplerogy\Linus.pdf" 
         download="Linus_Funeral_Program.png" 
         class="download-btn" 
         onclick="showDownloadMessage(event)">
@@ -476,10 +482,9 @@
         <h3>Map & Directions</h3>
         <p class="muted">Join us or visit the resting place of Linus using the map below.</p>
 
-        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3377.951144082801!2d37.10976238417081!3d-0.8912591024462635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwNTMnMjguNyJTIDM3wrAwNiczNS4zIkU!5e0!3m2!1sen!2snl!4v1763370598150!5m2!1sen!2snl"
-          width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
-        </iframe>
-        <a class="btn" target="_blank" href="www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3377.951144082801!2d37.10976238417081!3d-0.8912591024462635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwNTMnMjguNyJTIDM3wrAwNiczNS4zIkU!5e0!3m2!1sen!2snl!4v1763370598150!5m2!1sen!2snl" style="margin-top:8px;display:inline-block;">Get Directions</a>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d444041.51539575314!2d37.24937207797516!3d-0.8014307505797548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwNTMnMjguNyJTIDM3wrAwNiczNS4zIkU!5e0!3m2!1sen!2ske!4v1763393208920!5m2!1sen!2ske"
+         width="300" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <a class="btn" target="_blank" href="www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d444041.51539575314!2d37.24937207797516!3d-0.8014307505797548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwNTMnMjguNyJTIDM3wrAwNiczNS4zIkU!5e0!3m2!1sen!2ske!4v1763393208920!5m2!1sen!2ske" style="margin-top:8px;display:inline-block;">Get Directions</a>
       </div>
 
       <div class="card fade-in" style="margin-top:14px">
