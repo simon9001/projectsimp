@@ -8,7 +8,7 @@ const submit = document.getElementById('submitTribute');
 const clearAll = document.getElementById('clearAll');
 
 // ✅ Your live Google Apps Script Web App URL (must end with /exec)
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw9k8Wz3warLqEPm7YbSBSuJ-K7wnoD2poLvnsnQjKY4sOZQVroGCdYB2Oc-e2s6cnLlQ/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx3Dt4plfZeB2wwOgsPwkNLj7kc7txk2dxymijsaFFNk-_7pBU77plsitS5jq_T0u71hw/exec';
 
 // Unique user UUID for ownership tracking
 if (!localStorage.getItem('user_uuid')) {
